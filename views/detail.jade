@@ -1,0 +1,81 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/home_page.css')
+    link(rel='stylesheet', href='/stylesheets/left_cont.css')
+    link(rel='stylesheet', href='/stylesheets/side_bar.css')
+    link(rel='stylesheet', href='/stylesheets/calendar.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/stylesheets/item.css')
+    link(rel='stylesheet', href='/javascripts/ckeditor/plugins/codesnippet/lib/highlight/styles/pojoaque.css')
+  body
+    .page-window
+      .main-container
+        .content-container
+          .home-header-border
+            .home-header
+              a(href="/")
+                img(src="../images/logo.png")
+          .item-content-container
+            - if (item.title !== '')
+              p#title #{item.title}
+              p.meta #{moment(item.meta.updated_at).utc().utcOffset(-8).format('ll')} UPDATED BY #{item.author}
+            img.item-image-large(src="../uploads/#{item.image}")
+            .item-desc
+              ul.item-ul
+                - if (item.character !== '')
+                  li
+                    label Character
+                    div #{item.character}
+                - if (item.category !== '')
+                  li
+                    label Category
+                    div #{item.category}
+                - if (item.company !== '')
+                  li
+                    label Company
+                    div #{item.company}
+                - if (item.series !== '')
+                  li
+                    label Series
+                    div #{item.series}
+                - if (item.releaseYear !== '' && item.releaseYear!== 0)
+                  li
+                    label Release Year
+                    div #{item.releaseYear}
+                - if (item.priceUSD !== '' && item.priceUSD!== 0)
+                  li
+                    label Price USD
+                    div $#{item.priceUSD}
+                - if (item.priceYen !== '' && item.priceYen!== 0)
+                  li
+                    label Price Yen
+                    div $#{item.priceYen}
+          .content !{item.content}
+          .comments-box
+            p.reply-count #{comments.length} Comments
+            - each comment in comments
+              section.comm
+                .comment-content
+                  p #{comment.content}
+                .meta-cont
+                  span #{comment.name}
+                  span at #{moment(comment.created_at).utc().utcOffset(-8).format('lll')}
+          .comments-form
+            form(action='/merch/reply/#{item._id}', method='post')
+              p Your email address will not be published.
+              p
+                input(class='form-control', name='name', type='text', placeholder='Name', required)
+              p
+                input(class='form-control', name='email', type='email', placeholder='Email', required)
+              p
+                textarea(class='form-control', name='content', required)
+              p
+                input(type='submit', value='Post Comment')
+        include side_bar
+
+    script(src='/javascripts/page.js')
+    script(src='/javascripts/ckeditor/plugins/codesnippet/lib/highlight/highlight.pack.js')
+    script.
+      hljs.initHighlightingOnLoad();

@@ -1,0 +1,33 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/login.css')
+		link(rel='stylesheet', href='/stylesheets/font-awesome/css/font-awesome.min.css')
+	body
+		.page-window
+			.mask
+				form(action='/admin/login', method='post')
+					.header
+						span Hello Again
+					.input-cont
+						- if (pageErrors)
+							input(type='text', name='user[username]', value='#{pageErrors.username}', id='username')
+							- if (incorrectUser)
+								label(for='username') 
+									span.tri 
+										i
+									span.tail Incorrect username!
+							input(type='password', name='user[password]', value='#{pageErrors.password}', id='password')
+							- if (incorrectPassword)
+									label(for='password') 
+										span.tri
+											i
+										span.tail Incorrect password!
+						- else 
+							input(type='text', placeholder='Username', name='user[username]')
+							input(type='password', placeholder='Password', name='user[password]')							
+					.footer
+						input(type='submit', value='Log In')
+
+	

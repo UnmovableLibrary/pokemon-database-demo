@@ -1,0 +1,22 @@
+doctype html
+html
+	head
+		title= title
+		link(rel='stylesheet', href='/stylesheets/home_page.css')
+		link(rel='stylesheet', href='/stylesheets/left_cont.css')
+		link(rel='stylesheet', href='/stylesheets/side_bar.css')
+		link(rel='stylesheet', href='/stylesheets/calendar.css')
+		link(rel='stylesheet', href='/stylesheets/font-awesome/css/font-awesome.min.css')
+	body
+		.page-window
+			.main-container
+				.content-container
+					.home-header-border
+						.home-header
+							a(href="/")
+								img(src="../images/logo.png")
+					.item-list
+						include post_list
+				include side_bar
+
+	script(src='/javascripts/page.js')

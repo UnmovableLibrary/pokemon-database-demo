@@ -1,0 +1,67 @@
+.left-container {
+  width: 38.5%;
+  height: 100%;
+  position: relative;
+  left: 0;
+  top: 0;
+  background-size: cover;
+  background-position: top center;
+}
+.left-container-mask {
+  position: absolute;
+  z-index: 2;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  /*background: -linear-gradient(top, rgba(10, 10, 10, .1), rgba(10, 10, 10, .6));*/
+  background: -webkit-linear-gradient(top, rgba(10, 10, 10, .1), rgba(10, 10, 10, .6));
+  background: -moz-linear-gradient(top, rgba(10, 10, 10, .1), rgba(10, 10, 10, .6));
+  background: -o-linear-gradient(top, rgba(10, 10, 10, .1), rgba(10, 10, 10, .6));
+}
+.title-container, .userinfo-container {
+  position: absolute;
+  width: 68%;
+  color: #fff;
+  left: 50%;
+  transform: translateX(-50%);
+}
+.title-container {
+  bottom: 45px;
+}
+.userinfo-container {
+  bottom: 100px;
+}
+#title {
+  font-size: 2em;
+  font-family: 'my-title-font';
+  margin: 10px 0;
+}
+.user-avator {
+  position: relative;
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  margin: 0 auto;
+  background-size: 108% 109%;
+  background-position: center center;
+  cursor: pointer;
+}
+#description, #user-name {
+  position: relative;
+  width: 95%;
+  font-size: 22px;
+  font-family: 'PT Serif, serif';
+}
+#description {
+  margin: 10px auto 40px;
+}
+#user-name {
+  margin: 10px auto;
+}
+.meta {
+  border-top: 1px solid rgba(255, 255, 255, .349);
+  padding-top: 20px;
+  color: #ccc;
+  text-transform: uppercase;
+}

@@ -1,0 +1,19 @@
+#items
+		- each item in items
+				item
+					.entry
+						a(href='/merch/' + item._id)
+							.item-image(style='background-image: url("../uploads/#{item.image}")')
+						a(href='/merch/' + item._id) #{item.title}
+						.entry-company= item.company
+						.entry-series= item.series
+						.entry-category= item.category
+						.entry-meta
+							span updated on #{moment(item.meta.updated_at).utc().utcOffset(-8).format('ll')}
+							- if (user)
+								span.op-bt
+									a(href='/admin/merch/update/' + item._id) edit
+										i(class='fa fa-edit')
+								span.op-bt.remove-post
+									a(href='/admin/merch/remove/' + item._id) delete
+										i(class='fa fa-trash-o')

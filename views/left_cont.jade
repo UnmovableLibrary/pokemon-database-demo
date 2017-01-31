@@ -1,0 +1,9 @@
+.left-container
+	.left-container-mask
+		.title-container
+			- if (item.title !== '')
+				p#title #{item.title}
+				p#description #{item.category}
+				p.meta #{moment(item.meta.updated_at).utc().utcOffset(-8).format('ll')} BY #{item.author}
+						
+				

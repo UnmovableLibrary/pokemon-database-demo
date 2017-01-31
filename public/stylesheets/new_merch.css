@@ -1,0 +1,81 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: serif;
+}
+.form-container {
+  position: relative;
+  width: 100%;
+  /*height: 100%;*/
+}
+.form-container form {
+  position: relative;
+  width: 76%;
+  height: 95%;
+  padding: 20px 0;
+  margin: 15px auto;
+  border: 1px solid #ccc;
+  box-shadow: 0 0 5px 1px #ddd, 0 0 20px 1px #eee;
+  box-sizing: border-box;
+}
+.form-container table {
+  width: 94%;
+  margin: 0 auto;
+  border-spacing: 2px 12px;
+}
+.form-container table tr td:first-child {
+  width: 14%;
+  vertical-align: top;
+}
+.form-container table td > span {
+  display: inline-block;
+  width: 100%;
+  height: 30px;
+  line-height: 25px;
+  padding: 0 5px;
+  vertical-align: top;
+  font-size: 14px;
+  text-align: right;
+  box-sizing: border-box;
+  color: #555;
+}
+.form-container table tr:nth-child(5) td:last-child {
+  display: flex;
+  justify-content: space-between;
+}
+.form-container input, .form-container textarea {
+  width: 100%;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  box-sizing: border-box;
+  outline: none;
+  font-size: 16px;
+  padding: 5px;
+}
+.form-container input:focus, .form-container textarea:focus {
+  border-color: #63BEF5;
+  box-shadow: 0 0 2px 1px #AED8F1;
+}
+.form-container input {
+  height: 30px;
+}
+input.post-tag {
+  width: 25%;
+}
+textarea {
+  height: 750px;
+}
+input[type="submit"] {
+  background-color: rgb(247, 179, 49);
+  color: #fff;
+  font-size: 20px;
+  letter-spacing: .1em;
+  cursor: pointer;
+  line-height: 20px;
+  vertical-align: middle;
+  border: none;
+}
+input[type="submit"]:active {
+  background-color: rgb(224, 167, 57);
+  color: #fff;
+}

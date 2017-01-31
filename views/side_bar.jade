@@ -1,0 +1,54 @@
+.side-bar.hidden
+	.nav-container
+		.slogan
+			i(class='fa fa-navicon')
+		ul.nav
+			li(class='nav-li')
+				a(href='/')
+					ul
+						li
+							i(class='fa fa-home')
+							span(class='nav-header') Home
+						li
+							span(class='nav-header nav-desc') Welcome 
+			li(class='nav-li')
+				a(href='http://www.kellianhunt.com/' target='_blank')
+					ul
+						li
+							i(class='fa fa-user')
+							span(class='nav-header') About me
+						li
+							span(class='nav-header nav-desc') Kellian Hunt
+			li(class='nav-li')
+				a(href='#')
+					ul
+						li
+							i(class='fa fa-tags')
+							span(class='nav-header') Tags
+						li
+							span(class='nav-header nav-desc')
+			- if(!user)
+				li(class='nav-li')
+					a(href='/admin/home')
+						ul
+							li
+								i(class='fa fa-sign-in')
+								span(class='nav-header') Sign In
+							li
+								span(class='nav-header nav-desc') 
+			li
+				ul
+					li
+						i(class='fa fa-search')
+						input(type='text', id='search', placeholder='Type to search ...', autocomplete="off")
+		.tags-list
+			- each tag in tags
+				span #{tag}
+			.tool-bar
+				i(class='fa fa-reply')
+				- if (user)
+					i(class='fa fa-edit')
+		- if (user)
+			.logout
+				a(href='/admin/logout')
+					i(class='fa fa-sign-out')

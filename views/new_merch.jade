@@ -1,0 +1,93 @@
+doctype html
+html
+  head
+    title= title
+    link(rel='stylesheet', href='/stylesheets/home_page.css')
+    link(rel='stylesheet', href='/stylesheets/left_cont.css')
+    link(rel='stylesheet', href='/stylesheets/side_bar.css')
+    link(rel='stylesheet', href='/stylesheets/calendar.css')
+    link(rel='stylesheet', href='/stylesheets/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/stylesheets/new_merch.css')
+  body
+    .page-window
+      .main-container
+        include left_cont
+        .content-container
+          .form-container
+            form(method="POST", name= "item", action="/admin/merch/new")
+              input(type="hidden", name="item[_id]", value="#{item._id}")
+              table
+                tbody
+                  tr
+                    td
+                      span Title :
+                    td
+                      input(type="text", name="item[title]", value="#{item.title}", id="editItemTitle")
+                  tr
+                    td
+                      span Character :
+                    td
+                      input(type="text", name="item[character]", value="#{item.character}", id="editItemCharacter")
+                  tr
+                    td
+                      span Category :
+                    td
+                      input(type="text", name="item[category]", value="#{item.category}", id="editItemCategory")
+                  tr
+                    td
+                      span Image :
+                    td
+                      input(type="text", name="item[image]", value="#{item.image}", id="editItemImage")
+                  tr
+                    td
+                      span Content :
+                    td 
+                      textarea(name="content", id="content") #{item.content}
+                  tr
+                    td
+                      span Company :
+                    td
+                      input(type="text", name="item[company]", value="#{item.company}", id="editItemCompany")
+                  tr
+                    td
+                      span Series :
+                    td
+                      input(type="text", name="item[series]", value="#{item.series}", id="editItemSeries")
+                  tr
+                    td
+                      span Release Year :
+                    td
+                      input(type="text", name="item[releaseYear]", value="#{item.releaseYear}", id="editItemReleaseYear")
+                  tr
+                    td
+                      span Price USD :
+                    td
+                      input(type="text", name="item[priceUSD]", value="#{item.priceUSD}", id="editItemPriceUSD")
+                  tr
+                    td
+                      span Price Yen :
+                    td
+                      input(type="text", name="item[priceYen]", value="#{item.priceYen}", id="editItemPriceYen")
+                  tr
+                    td
+                      span Tags :
+                    td
+                      - if (isUpdate)
+                        input(type="text", name="tag1", value="#{item.tag[0]}", class="post-tag")
+                        input(type="text", name="tag2", value="#{item.tag[1]}", class="post-tag")
+                        input(type="text", name="tag3", value="#{item.tag[2]}", class="post-tag")
+                      - else
+                        input(type="text", name="tag1", value="#{item.tag[0]}", class="post-tag")
+                        input(type="text", name="tag2", value="#{item.tag[1]}", class="post-tag")
+                        input(type="text", name="tag3", value="#{item.tag[2]}", class="post-tag")
+                  tr
+                    td
+                    td
+                      input(type="submit", value="Save")
+                   
+        include side_bar
+        
+    script(src='/javascripts/page.js')
+    script(src='/javascripts/ckeditor/ckeditor.js')
+    script.
+      CKEDITOR.replace('content');
